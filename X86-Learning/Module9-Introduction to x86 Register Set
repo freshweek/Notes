@@ -1,0 +1,45 @@
+## General-Purpose Registers(GPRs)
+
+![x86 Register Set](Module-9-registers.png)
+
+### Traditional x86
+* AX, BX, CX, DX, EAX - EDX
+* SI: Source Index, ESI
+* DI: Destination Index, EDI
+* BP: Base Pointer, EBP
+* SP: Stack Pointer, ESP
+* XMM0 - XMM7
+* CS, SS, DS, ES, FS, GS
+* IP
+* Debut Registers, Control Registers ...
+
+
+### Added in x86-64
+* Extented to 64 bits ....
+* XMM8 - XMM15
+* R8 - R15
+
+### Added with AVX
+* YMM0 - YMM15
+
+### Added with AVX 512
+* ZMM0 - ZMM 31
+
+**R8B**(8-bits), **R8W**(16-bits), **R8D**(32-bits), **R8**(64-bits)
+
+
+
+## Flag Registers
+* Indicate the status of arithmetric operation
+    CF, PF, AF, ZF, SP, OF
+
+* System flags and the IOPL field
+
+
+## Floating-Point Registers(x87 Registers)
+
+float: sign(31, 1), exponent(23-30, 8), significand(0-22, 23)  
+double: sign(63, 1), exponent(52-62, 11), significand(0-51, 52)  
+extended double: sign(79, 1), exponent(64-78, 15), significand(0-62, 63)  
+
+![floating-points format](Module-9-floating-points.png)
