@@ -1,10 +1,10 @@
-## Rsyslog简介
+# Rsyslog简介
 * Rsyslog的全称是 rocket-fast system for log，它提供了高性能，高安全功能和模块化设计。rsyslog能够接受从各种各样的来源，将其输入，输出的结果到不同的目的地。rsyslog可以提供超过每秒一百万条消息给目标文件。
 * 日志是任何软件或操作系统的关键组件。 日志通常会记录用户的操作、系统事件、网络活动等等，具体取决于它们的用途。 Linux 系统上使用最广泛的日志系统之一是 rsyslog 。
 * Rsyslog 是一个强大、安全和高性能的日志处理系统，它接受来自不同类型源（系统/应用程序）的数据并输出为多种格式。
 * 它已经从一个常规的 syslog 守护进程发展成为一个功能齐全的企业级日志系统。 它采用客户端/服务器模型设计，因此可以配置为客户端和/或其他服务器、网络设备和远程应用程序的中央日志服务器。
 
-## 功能特性
+# 功能特性
 * 多线程
 * 可以通过许多协议进行传输UDP，TCP，SSL，TLS，RELP；
 * 直接将日志写入到数据库;
@@ -12,7 +12,7 @@
 * 强大的过滤器，实现过滤日志信息中任何部分的内容
 * 自定义输出格式
 
-## 三种协议
+# 三种协议
 * UDP 传输协议
 　　基于传统UDP协议进行远程日志传输，也是传统syslog使用的传输协议； 可靠性比较低，但性能损耗最少， 在网络情况比较差， 或者接收服务器压力比较高情况下，可能存在丢日志情况。 在对日志完整性要求不是很高，在可靠的局域网环境下可以使用。
 
@@ -23,18 +23,18 @@
 　　RELP（Reliable Event Logging Protocol）是基于TCP封装的可靠日志消息传输协议； 是为了解决TCP 与 UDP 协议的缺点而在应用层实现的传输协议，也是三者之中最可靠的。 需要多安装一个包rsyslog-relp以支持该协议。
 
 
-## 命令参数
+# 命令参数
 
 ```bash
 $ rsyslogd -v
 $ service rsyslog restart
 ```
 
-## 配置文件
+# 配置文件
 * /etc/rsyslog.conf
 * /etc/rsyslog.d/*.conf
 
-## 配置相关概念
+# 配置相关概念
 
 **日志记录格式**：\<facility\>.\<priority\>    <action\>
 
@@ -131,7 +131,11 @@ $template local1_path,  "/data/rsyslog/%FROMHOST_IP%/history/%$YEAR%-%$MONTH%-%$
 $template remote_path,  "/data/rsyslog/%FROMHOST_IP%/%syslogfacility-text%/%$YEAR%-%$MONTH%-%$DAY%.log"
 ```
 
-## 配置文件参数
+### 属性替代
+
+属性替代中包含一些rsyslog自定义的变量，参考blog: [https://www.cnblogs.com/solitarywares/p/7993871.html](https://www.cnblogs.com/solitarywares/p/7993871.html)
+
+# 配置文件参数
 
 /etc/rsyslog.conf文件详解
 ```bash
@@ -195,3 +199,7 @@ $template local1_path, "/data/rsyslog/%FROMHOST_IP%/history/%$YEAR%-%$MONTH%-%$D
 if $fromhost-ip != '127.0.0.1' then ?remote-path;remote-path2
 
 ```
+
+# 具体使用
+
+rsyslogd开放了三个API，`open`, `syslog`, `closelog`用于在程序中记录log，具体使用参考blog: [https://zhuanlan.zhihu.com/p/371225037](https://zhuanlan.zhihu.com/p/371225037)
