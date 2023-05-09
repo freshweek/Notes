@@ -39,3 +39,11 @@ GAP服务包括设备发现、连接模式、安全、认证、关联模式和�
 
 ### BR/EDR/LE Controller Architecture
 
+
+## Bluetooth Application Architecture
+
+![Bluetooth Application Arch](03_bluetooth_application_arch.png)
+
+蓝牙系统中应用的功能由Bluetooth Profiles完成。Bluetooth Profile的定义了需要的函数和从PHY至L2CAP这些层的特性。Profile定义了是蓝牙协议栈的垂直行为，设计了点对点的传输方式。
+
+Bluetooth Profile也定义了应用的行为和数据格式。
