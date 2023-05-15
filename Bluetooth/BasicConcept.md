@@ -1,10 +1,10 @@
 ### Bluetooth Profiles
 
-![Bluetooth profile](01_bluetooth_profiles.png)
+![Bluetooth profile](./images/01_bluetooth_profiles.png)
 
 蓝牙系统中包含多种core configuration(我的理解是类似于functionality)，不同类型的产品包含覆盖不同的Core Configuration，进而构成功能不同、类型分级的产品。
 
-![Bluetooth core system architecture](02_bluetooth_core_system_arch.png)
+![Bluetooth core system architecture](./images/02_bluetooth_core_system_arch.png)
 
 
 ## Core Architecture Blocks
@@ -42,7 +42,7 @@ GAP服务包括设备发现、连接模式、安全、认证、关联模式和�
 
 ## Bluetooth Application Architecture
 
-![Bluetooth Application Arch](03_bluetooth_application_arch.png)
+![Bluetooth Application Arch](./images/03_bluetooth_application_arch.png)
 
 蓝牙系统中应用的功能由Bluetooth Profiles完成。Bluetooth Profile的定义了需要的函数和从PHY至L2CAP这些层的特性。Profile定义了是蓝牙协议栈的垂直行为，设计了点对点的传输方式。
 
