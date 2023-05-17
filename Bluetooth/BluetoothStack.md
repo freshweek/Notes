@@ -286,6 +286,23 @@ GAP Profile定义了Bluetooth通信的最基础过程。例如discovery蓝牙设
 
 #### Attribute Protocol(ATT)
 
-#### GATT Service
+Attribute Protocol(ATT)的定义是为了read, write server上的数据。每项数据被称为一个attribute，数据中包含少量octets。每项attribute可以使用UUID进行标识，UUID可以是预留的，也可以是vendor自定义的128-bit。
 
-#### GATT Characteristic
+每个设备可以同时拥有ATT Client和ATT Server。每层ATT bearer允许每个方向同时存在，因而设备可以并行地发送和接收消息。设备可以有多个ATT层，这样可以多个支持ATT上层并行地发送接收消息。
+
+ATT Server存储attributes，并接收ATT Client的Attribute Protocol requests, commands, confirmations。
+当ATT Server被higher layer配置时，ATT Server向ATT Client发送indications和notifications。
+
+#### GATT Overview
+
+GATT基于ATT进行封装，并构造出常用的操作，以及基于ATT的数据传输/保存的框架。GATT定义两个角色：Server、Client，分别对应ATT的Server、Client。
+
+GATT在BR/EDR是可选项，在LE中是必选项。
+
+GATT指定GATT Server中存储的数据格式。Attribute以Services和Characteristics的格式存储。
+
+* Services: 包含多个Characteristics以及对其他Services的引用。
+* Characteristics: 包含一个值和多个这个数据值的描述符。
+
+![GATT Profile](images/07_GATT_profile.png)
+

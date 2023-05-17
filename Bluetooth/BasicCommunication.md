@@ -1,5 +1,7 @@
 # Communication
 
+![Max Transmittion Rate](images/08_max_transmission_rate.png)
+
 对于蓝牙/网络设备的通信，大都需要经过以下几个步骤：
 1. 选择通信的设备
 2. 选择通信协议
