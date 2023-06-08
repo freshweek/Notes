@@ -13,6 +13,13 @@ ACPI namespace中的internal object包含用于配置和power管理的数据、�
 
 ![ACPI Overview](./images/01%20ACPI%20overview.png)
 
+包含 **_HID(Hardware Identification object)** 成员对象的device通常可以被ACPI遍历，并由ACPI加载他们的driver；包含 **_ADR(physical address object)** 成员的device通常不能被ACPI遍历，_ADR设备不通过ACPI就可以完成一些必要的功能，但是也可以通过ACPI完成需要的操作。
+
+ACPI tables, handlers, interpreter, namespace, events和interrupt model共同实现了ACPI，并创建了OS中的ACPI subsystem。
+
+ACPI namespace是可遍历的、多层表示的ACPI设备，它可用于发现和加载ACPI设备的driver。ACPI namespace可以实时地、动态地发送interrupt或计算ACPI objects。
+
+
 ## ACPI初始化流程
 
 系统Firmware完成setup, initilization, 和self test之后，在把控制权交给Bootstrap之前，Firmware将会更新特定平台需要的ACPI表和power接口数据。
