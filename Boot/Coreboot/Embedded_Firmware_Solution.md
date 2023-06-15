@@ -70,3 +70,7 @@ system reset之后，处理器从reset vector处开始执行，reset vector位�
 ![ResetVector](./images/03_reset_vector.png)
 ![ResetVectorDecoding](./images/04_reset_vector_decoding.png)
 ![ResetVectorInstruction](./images/05_reset_vector_instruction.png)
+
+### Devicetree-->AML
+
+转换指令
