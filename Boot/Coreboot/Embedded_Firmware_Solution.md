@@ -60,3 +60,13 @@ devicetree是coreboot用于表示设备结构，同时用于定义设备的标�
 ### Firmware Interface Table(FIT)
 
 FIT包含每个microcode update的指针。
+
+### Reset Vector
+
+system reset之后，处理器从reset vector处开始执行，reset vector位于"memory"的FFFF_FFF0h的位置，实际上，FFFF_FFF0h映射到了BIOS Flash Chip上。
+
+执行FFFF_FFF0h的指令，会跳转到FFFFFE30处，在该处完成16-bit向32-bit模式的转换，将CR0的bit1设置为1之后即可进入32-bit模式。
+
+![ResetVector](./images/03_reset_vector.png)
+![ResetVectorDecoding](./images/04_reset_vector_decoding.png)
+![ResetVectorInstruction](./images/05_reset_vector_instruction.png)
