@@ -21,3 +21,25 @@ scanf("%19s", buf);
 
 http://www.reactivated.net/writing_udev_rules.html
 
+### 4. Bash test: what does "=~" do?
+
+The ~ is actually part of the operator =~, which performs a regular expression match of the string to its left to the extended regular expression on its right.
+
+    [[ "string" =~ pattern ]]
+
+Note that the string should be quoted, and the regular expression shouldn't be quoted (unless you want to match literal strings).
+
+
+https://unix.stackexchange.com/questions/340440/bash-test-what-does-do
+
+### 5. What does "${!var}" mean in shell script? [duplicate]
+
+It's like a pointer.
+```bash
+$ hello="this is some text"   # we set $hello
+$ var="hello"                 # $var is "hello"
+$ echo "${!var}"              # we print the variable linked by $var's content
+this is some text
+```
+
+https://stackoverflow.com/questions/40928492/what-does-var-mean-in-shell-script
