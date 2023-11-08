@@ -43,3 +43,40 @@ this is some text
 ```
 
 https://stackoverflow.com/questions/40928492/what-does-var-mean-in-shell-script
+
+
+### 6. In Bash scripting, what's the meaning of " $! "?
+
+$! contains the process ID of the most recently executed background pipeline. From man bash:
+
+https://unix.stackexchange.com/questions/85021/in-bash-scripting-whats-the-meaning-of
+
+
+### 7. make submodule
+
+```bash
+cd /usr/src/kernel-sources
+make SUBDIRS=drivers/staging/ft1000/ft1000-usb modules
+# Enable the ft1000 module: CONFIG_FT1000=m  on the config with 
+make xconfig # or "make menuconfig" then save
+make prepare
+make modules_prepare
+make SUBDIRS=scripts/mod
+make SUBDIRS=drivers/staging/ft1000/ft1000-usb modules
+make SUBDIRS=drivers/staging/ft1000/ft1000-usb modules_install
+```
+https://askubuntu.com/questions/168279/how-do-i-build-a-single-in-tree-kernel-module
+
+
+### 8. enable linux kernel driver dev_dbg debug messages
+
+https://askubuntu.com/questions/1482728/debugging-kernel-module-with-dynamic-debug
+
+https://stackoverflow.com/questions/50504516/enable-linux-kernel-driver-dev-dbg-debug-messages
+
+https://www.kernel.org/doc/html/v4.11/admin-guide/dynamic-debug-howto.html
+
+### 9. Out Of Band (OOB) management
+
+https://en.wikipedia.org/wiki/Out-of-band_management
+
