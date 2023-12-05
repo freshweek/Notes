@@ -80,3 +80,49 @@ https://www.kernel.org/doc/html/v4.11/admin-guide/dynamic-debug-howto.html
 
 https://en.wikipedia.org/wiki/Out-of-band_management
 
+
+### 10. The x86 processor family is capable of addressing up to, but no more than, 64KB of IO address space
+
+### 11. cut
+
+cut each line with specific rule, and output the result.
+```bash
+cut  [-bn] [file] OR cut [-c] [file]  OR  cut [-df] [file]
+```
+
+```
+    -b: cut by bytes, and output target field
+    -c: cut by char, and output target field
+
+    -d: cut by delimeter
+    -f: and output target field
+
+    -n: with -b, don't split multibyte characters
+```
+Example:
+```bash
+    cut -b 3,5-7 test.txt
+    cut -c 3,5-7 test.txt
+    cut -d : -f 3,5-7 test.txt
+```
+
+    `cut -f` default with delimiter '-d \t'
+
+**Disadvantages**:
+cut cannot deal with the circumstance of multi-spaces. It can only use ONE space as the delimeter.
+
+https://www.cnblogs.com/dong008259/archive/2011/12/09/2282679.html
+
+### 12. Setup kgdboc for kernel debugging
+
+https://www.adityabasu.me/blog/2020/03/kgdboc-setup/
+
+https://serverfault.com/questions/499942/virsh-attach-device-for-serial-device
+
+### 13. Install deb package
+
+```bash
+sudo dpkg -i /path/to/deb/file
+sudo apt-get install -f
+```
+https://unix.stackexchange.com/questions/159094/how-to-install-a-deb-file-by-dpkg-i-or-by-apt
