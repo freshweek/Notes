@@ -126,3 +126,8 @@ sudo dpkg -i /path/to/deb/file
 sudo apt-get install -f
 ```
 https://unix.stackexchange.com/questions/159094/how-to-install-a-deb-file-by-dpkg-i-or-by-apt
+
+
+### 14. ASM in C
+
+https://dmalcolm.fedorapeople.org/gcc/2015-08-31/rst-experiment/how-to-use-inline-assembly-language-in-c-code.html
