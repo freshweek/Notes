@@ -1,0 +1,12 @@
+[
+{
+  "directory": "E:/Notes/build",
+  "command": "D:\\Mingw64\\bin\\g++.exe  @CMakeFiles/cmake_hello.dir/includes_CXX.rsp  -Wall -g -o CMakeFiles\\cmake_hello.dir\\test.cpp.obj -c E:\\Notes\\CMake\\test.cpp",
+  "file": "E:/Notes/CMake/test.cpp"
+},
+{
+  "directory": "E:/Notes/build/math",
+  "command": "D:\\Mingw64\\bin\\g++.exe -Dmath_EXPORTS   -Wall -g -o CMakeFiles\\math.dir\\oper.cpp.obj -c E:\\Notes\\CMake\\math\\oper.cpp",
+  "file": "E:/Notes/CMake/math/oper.cpp"
+}
+]

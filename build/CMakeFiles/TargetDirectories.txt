@@ -1,0 +1,6 @@
+E:/Notes/build/CMakeFiles/cmake_hello.dir
+E:/Notes/build/CMakeFiles/edit_cache.dir
+E:/Notes/build/CMakeFiles/rebuild_cache.dir
+E:/Notes/build/math/CMakeFiles/math.dir
+E:/Notes/build/math/CMakeFiles/edit_cache.dir
+E:/Notes/build/math/CMakeFiles/rebuild_cache.dir
