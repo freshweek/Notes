@@ -108,4 +108,42 @@ cudaMemcpyToSymbol(devPointer, &ptr, sizeof(ptr));
 CUDA支持将`persisting memory`放到L2 cache中。
 
 
+#### 设置L2 Cache中用于persisting memory的大小
+
+```c++
+cudaGetDeviceProperties(&prop, device_id);
+size_t size = min(int(prop.l2CacheSize * 0.75), prop.persistingL2CacheMaxSize);
+cudaDeviceSetLimit(cudaLimitPersistingL2CacheSize, size); /* set-aside 3/4 of L2 cache for persisting accesses or the max allowed*/
+```
+
+#### 设置放置在persisting的global memory
+
+在下述示例中，kernel访问`[ptr, ptr+num_bytes]`区域的global memory时，优先将其放置到persisting memory中。`hitRatio`表示是否放置到persisting的概率(当`hitProp`为`cudaAccessPropertyPersisting`).
+
+设置`hitRatio`的优势是可以避免persisting memory的抢占。比如persisting memory的总大小是32KB，而且有两个stream对应的`num_bytes`都是32KB，如果他们的`hitRatio`都是1.0，就会导致互相之间逐出对方的persisting,但是如果是0.5,就不会有这种情况。
+
+```c++
+cudaStreamAttrValue stream_attribute;                                         // Stream level attributes data structure
+stream_attribute.accessPolicyWindow.base_ptr  = reinterpret_cast<void*>(ptr); // Global Memory data pointer
+stream_attribute.accessPolicyWindow.num_bytes = num_bytes;                    // Number of bytes for persistence access.
+                                                                              // (Must be less than cudaDeviceProp::accessPolicyMaxWindowSize)
+stream_attribute.accessPolicyWindow.hitRatio  = 0.6;                          // Hint for cache hit ratio
+stream_attribute.accessPolicyWindow.hitProp   = cudaAccessPropertyPersisting; // Type of access property on cache hit
+stream_attribute.accessPolicyWindow.missProp  = cudaAccessPropertyStreaming;  // Type of access property on cache miss.
+
+//Set the attributes to a CUDA stream of type cudaStream_t
+cudaStreamSetAttribute(stream, cudaStreamAttributeAccessPolicyWindow, &stream_attribute);
+```
+
+#### L2 Cache的类型
+
+* `cudaAccessPropertyPersisting`
+* `cudaAccessPropertyStreaming`
+* `cudaAccessPropertyNormal`
+
+#### 重置L2 Cache的类型
+
+* 将`hitProp`设置为`cudaAccessPropertyNormal`
+* 调用`cudaCtxResetPersistingL2Cache()`
+* 依靠系统自动设置（不推荐）
 
